@@ -3,6 +3,7 @@ FROM debian:trixie AS builder
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
+	&& apt-get upgrade -y \
     && apt-get install -y eatmydata \
     && eatmydata apt-get install -y --no-install-recommends \
         qemu-user-static mtools sbuild-debian-developer-setup \
